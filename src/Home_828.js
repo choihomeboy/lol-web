@@ -10,49 +10,76 @@ function Home() {
     })
     const useMountEffect = (fun) => useEffect(fun, [])
 
+//
+//
+
     const introRef = useRef()
     const aboutRef = useRef()
     const projectRef = useRef()
     const reviewRef = useRef()
     const postRef = useRef()
 
-    // const refLoc = [introRef.current.offsetTop, aboutRef.current.offsetTop, projectRef.current.offsetTop, reviewRef.current.offsetTop, postRef.current.offsetTop ]
-
+    const refLoc = [introRef, aboutRef, projectRef, reviewRef, postRef ]
+    const [loc,setloc] = useState(0)
     // const [refIdx, setRefIdx] = useState(0)
 
     useMountEffect(() => scrollToRef(introRef)) // Scroll on mount
-
 
     const prevScrollY = useRef(0);
 
     const [refIdx, setRefIdx] = useState(0);
     const [goingUp, setGoingUp] = useState(false);
     const [goingDown, setGoingDown] = useState(false);
-
+    const [state, setState] = useState('unknown');
     const [atRef, setAtRef] = useState(true);
 
+    // as long as it continues to be invoked, it will not be triggered
+    function debounce (func, interval) {
+      var timeout;
+      return function () {
+        var context = this, args = arguments;
+        var later = function () {
+          timeout = null;
+          func.apply(context, args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, interval || 200);
+      }
+    }
+
+
     useEffect(() => {
-        const handleScroll = () => {
+
+        const handleScroll = debounce(function() {
             const currentScrollY = window.scrollY;
             if (prevScrollY.current < currentScrollY) {
-                // setGoingUp( false );
+                setGoingUp( false );
                 setGoingDown( true);
             }
-            if (prevScrollY.current > currentScrollY) {
+            else if (prevScrollY.current > currentScrollY) {
                 setGoingUp( true);
-                // setGoingDown( false);
+                setGoingDown( false);
             }
-            prevScrollY.current = currentScrollY;
-            console.log( goingUp, goingDown )
 
-        };
+            if (goingUp && loc>0) {
+              setloc(loc-1)
+              scrollToRef(refLoc[loc]);
+            }
+            else if (goingDown && loc<4) {
+              setloc(loc+1)
+              scrollToRef(refLoc[loc]);
+            }
+
+            console.log( goingUp, goingDown, loc)
+            prevScrollY.current = currentScrollY;
+
+        },250);
 
         window.addEventListener("scroll", handleScroll );
-        setGoingUp( false );
-        setGoingDown( false);
 
         return () => window.removeEventListener("scroll", handleScroll);
     }, [goingUp, goingDown]);
+
 
     return (
         <Layout>
