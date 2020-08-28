@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, useRef } from 'react';
+import styled from 'styled-components';
+import Header from './Layout/Header';
+import Navigation from './Layout/Navigation';
+
 
 function App() {
+
+  const aboutRef = useRef()
+  const projectRef = useRef()
+  const reviewRef = useRef()
+  const postRef = useRef()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Header />
+      <Navigation ref={aboutRef}/>
+      <Navigation ref={projectRef}/>
+      <Navigation ref={reviewRef}/>
+      <Navigation ref={postRef}/>
+    </Layout>
   );
 }
+
+
+const Layout = styled.div`
+  flex: 1;
+  flex-direction: column;
+`
 
 export default App;
