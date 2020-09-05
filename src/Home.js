@@ -66,8 +66,8 @@ const Page = styled.div`
 
 const Panel = styled.div`
     display: flex;
-    flex-direction: column;  
-    align-items: center;  
+    flex-direction: column;
+    align-items: center;
     width: 80%;
     height: 50%;
     box-shadow: 5px 5px 1px #606d61;
