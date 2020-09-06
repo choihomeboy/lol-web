@@ -1,31 +1,22 @@
-import React, { Component, useRef } from 'react';
-import styled from 'styled-components';
-import Header from './Layout/Header';
-import Navigation from './Layout/Navigation';
+import React from 'react';
+import Navigation from './components/navigation';
+import {BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
+import PageRenderer from './page-renderer'
 
 function App() {
-
-  const aboutRef = useRef()
-  const projectRef = useRef()
-  const reviewRef = useRef()
-  const postRef = useRef()
-
   return (
-    <Layout>
-      <Header />
-      <Navigation ref={aboutRef}/>
-      <Navigation ref={projectRef}/>
-      <Navigation ref={reviewRef}/>
-      <Navigation ref={postRef}/>
-    </Layout>
+    <Router>
+      <div className="App">
+        <Navigation/>
+        <Switch>
+          <Route path="/:page" component={PageRenderer}/>
+          <Route path="/" render={() =><Redirect to='/home'/>} />
+          <Route component={() => 404} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
-
-
-const Layout = styled.div`
-  flex: 1;
-  flex-direction: column;
-`
 
 export default App;
