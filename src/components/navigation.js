@@ -24,7 +24,7 @@ const navLinks =[
 export default function Navigation () {
     return (
         <nav className="site-navigation">
-            <span className="menu-title">My React Blog</span>
+            <span className="menu-title">Meta GG</span>
             <ul>
                 {navLinks.map( (link,index) =>(
                     <li key={index}>
