@@ -2,6 +2,9 @@ import React from 'react'
 
 
 export default function ContactUs (){
-    return <div>ContactUs</div>
+    return (
+        <h2>CONTACT</h2>
+        
+    )
 }
 

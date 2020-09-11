@@ -1,0 +1,13 @@
+.news {
+    display: grid;
+    grid-gap: 30px;
+}
+
+// 각 이미지 사이 30픽셀 주기
+
+@media screen and (max-width: 900px) {
+    .news {
+        display: flex;
+        flex-direction: column;
+    }
+}

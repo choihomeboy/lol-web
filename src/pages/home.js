@@ -45,6 +45,40 @@ const Page = styled.div`
 export default Home;
 
 
+// {/* <Container>
+//             <Page id ="introduction" >
+//                 <img src='https://source.unsplash.com/s91aurz19vs' alt='img1' style ={{ width: '100%', height: '100%' }} ></img>
+//                 <div className='center-text'>WE EXPAND THE VALUE OF GAME DATA</div>
+//             </Page>
+//             <Page id ="vision" >
+//                 <h2> Visions</h2>
+//             </Page>
+//             <Page id ="mission" >
+//                 <h2> Missions</h2>
+//             </Page>
+//             <Page id ="product" >
+//                 <h2> Products</h2>
+//             </Page>
+//         </Container>
+
+// const Container = styled.div`
+//     flex: 1;
+//     flex-direction: column;
+//     scroll-snap-type: y mandatory;
+//     overflow-y: scroll;
+// `
+
+// const Page = styled.div`
+//     position: relative;
+//     display: flex;
+//     flex: 1;
+//     justify-content: center;
+//     align-items: center;
+//     width: 100%;
+//     height: 100vh;
+//     scroll-snap-align: start;
+
+// `; */}
 
 
 // const Panel = styled.div`
