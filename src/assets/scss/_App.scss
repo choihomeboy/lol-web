@@ -1,0 +1,15 @@
+.App {
+    flex: 1;
+    flex-direction: column;
+}
+.appHeader {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 1;
+}
+.appContent {
+    flex:1;
+    padding-top: 100px;
+    background-color: white;
+}
