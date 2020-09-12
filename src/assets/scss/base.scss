@@ -2,6 +2,7 @@
 @import './_navigation.scss';
 @import './_text.scss';
 @import './home';
+@import './App';
 @import './news-post';
 @import './post-news';
 
@@ -10,6 +11,7 @@ html body{
     font-weight: 500;
     margin:0;
     background-color: $background;
+    // overflow-y: hidden;
 }
 /* since import 'antd/dist/antd.css' override the body css, we need 
     specificity for it. so this be higher specificity using 'html' body

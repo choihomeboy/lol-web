@@ -12,12 +12,16 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navigation user={user}/>
-        <Switch>
-          <Route path="/:page" component={PageRenderer}/>
-          <Route path="/" render={() =><Redirect to='/home'/>} />
-          <Route component={() => 404} />
-        </Switch>
+        <div className="appHeader">
+          <Navigation user={user}/>
+        </div>
+        <div className="appContent">
+          <Switch>
+            <Route path="/:page" component={PageRenderer}/>
+            <Route path="/" render={() =><Redirect to='/home'/>} />
+            <Route component={() => 404} />
+          </Switch>
+        </div>
       </div>
     </Router>
   );
